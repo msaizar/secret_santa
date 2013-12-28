@@ -1,4 +1,4 @@
 Secret Santa
 ============
 
-Secret Santa webapp written in Knockout.js and Bootstrap.
+Secret Santa webapp that uses Knockout.js, amplify.js, require.js, jQuery and Bootstrap CSS.
