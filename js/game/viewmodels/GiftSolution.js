@@ -14,6 +14,18 @@ define(['knockout', 'amplify', 'game/models/Game'], function(ko, amplify, Game) 
         self.randomizeAgain = function() {
             self.game().randomizeGifts();
         }
+        
+        self.differentNames = function() {
+            self.visible(false);
+            amplify.publish('PlayerQuantitySelected', self.game());
+        }
+        
+        self.newGame = function() {
+            self.visible(false);
+            
+            amplify.publish('PlayerQuantityView');
+        }
+        
 	
     }
 });

@@ -8,5 +8,13 @@ define(['knockout', 'amplify', 'game/models/Game'], function(ko, amplify, Game) 
     		self.visible(false);
     		amplify.publish('PlayerQuantitySelected', self.game());
     	}
+        
+        amplify.subscribe('PlayerQuantityView', function() {
+            self.view();
+        })
+        
+        self.view = function() {
+            self.visible(true);
+        }
     }
 });

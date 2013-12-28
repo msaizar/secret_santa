@@ -27,7 +27,8 @@ define(['jquery', 'knockout', 'game/models/Gift', 'game/models/Player'], functio
     		return Math.floor(Math.random() * (max - min + 1)) + min;
     	}
         
-    	self.createEmptyPlayers = function() {		
+    	self.createEmptyPlayers = function() {	
+            self.players([]);	
     		for (var i = 0; i < self.playerQuantity(); i++ ) {
     			var player = new Player('');			
     			self.addPlayer(player);
