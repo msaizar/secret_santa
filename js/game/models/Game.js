@@ -1,4 +1,4 @@
-define(['jquery', 'knockout', 'game/models/Gift'], function($, ko, Gift) {
+define(['jquery', 'knockout', 'game/models/Gift', 'game/models/Player'], function($, ko, Gift, Player) {
     return function Game() {
     	var self = this;
     	self.playerQuantity = ko.observable(2);
@@ -26,6 +26,14 @@ define(['jquery', 'knockout', 'game/models/Gift'], function($, ko, Gift) {
     	self.getRandomInt = function(min, max) {
     		return Math.floor(Math.random() * (max - min + 1)) + min;
     	}
+        
+    	self.createEmptyPlayers = function() {		
+    		for (var i = 0; i < self.playerQuantity(); i++ ) {
+    			var player = new Player('');			
+    			self.addPlayer(player);
+    		}
+    	}
+        
 	
     	self.randomizeGifts = function() {
     		self.gifts([]);

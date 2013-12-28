@@ -27,7 +27,7 @@
 			<div id="selectPlayerNames" data-bind="visible: visible">
 				
 				
-				<form class="form-horizontal" role="form" data-bind="foreach: game.players">
+				<form class="form-horizontal" role="form" data-bind="foreach: game().players">
 					<div class="form-group">
 				    	<label>Player Name</label>
 				    	<input data-bind="value: name" type="text">
@@ -38,11 +38,8 @@
 			</div>
 
 			<div id="gifts" data-bind="visible: visible">
-				1
-				
 				<ul data-bind="foreach: game().gifts">
-					2
-					<li><span data-bind="value: playerGifting.name"></span> -> <span data-bind="value: playerGifted.name"></span></li>
+					<li><span data-bind="text: playerGifting.name"></span> -> <span data-bind="text: playerGifted.name"></span></li>
 				</ul>
 			</div>
 			
