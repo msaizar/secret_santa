@@ -26,7 +26,7 @@
 
 			<div id="selectPlayerNames" data-bind="visible: visible">
 				
-				
+				<h2>Enter player names</h2>
 				<form class="form-horizontal" role="form" data-bind="foreach: game().players">
 					<div class="form-group">
 				    	<label>Player Name</label>
@@ -38,9 +38,18 @@
 			</div>
 
 			<div id="gifts" data-bind="visible: visible">
-				<ul data-bind="foreach: game().gifts">
-					<li><span data-bind="text: playerGifting.name"></span> -> <span data-bind="text: playerGifted.name"></span></li>
-				</ul>
+                <h2>Secret Santa Result</h2>
+                <table class="table table-condensed table-striped">
+                    <thead>
+                        <tr><th>This Person Is Gifting</th><th>This Person</th></tr>
+                    </thead>
+				<tbody data-bind="foreach: game().gifts">
+                    <tr>
+                        <td data-bind="text: playerGifting.name"></td>
+                        <td data-bind="text: playerGifted.name"></td>
+                    </tr>
+                </tbody>
+            </table>
 			</div>
 			
 		</div>
