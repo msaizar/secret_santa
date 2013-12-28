@@ -36,19 +36,26 @@ define(['jquery', 'knockout', 'game/models/Gift', 'game/models/Player'], functio
         
 	
     	self.randomizeGifts = function() {
+            
     		self.gifts([]);
     		self.playersGifted = [];
     		self.playersGifting = [];
     		for (var i = 0; i < self.players().length; i++) {
     			var obj = self.players()[i];
     			var index = i;
-    			while (index == i || $.inArray(index, self.playersGifted)  != -1) {
-    				index = self.getRandomInt(0, self.playerQuantity() - 1);
-    			}
-    			self.playersGifting.push(i);
-    			self.playersGifted.push(index);
-    			var gift = new Gift(obj, self.players()[index]);
-    			self.gifts.push(gift);
+                if (i == self.players().length -1 && ($(self.playersGifted).not(self.playersGifting).length == 0 && $(self.playersGifting).not(self.playersGifted).length == 0)) {
+                    self.randomizeGifts();
+                }
+                else {
+        			while (index == i || $.inArray(index, self.playersGifted)  != -1) {
+        				index = self.getRandomInt(0, self.playerQuantity() - 1);
+        			}
+        			self.playersGifting.push(i);
+        			self.playersGifted.push(index);
+        			var gift = new Gift(obj, self.players()[index]);
+        			self.gifts.push(gift);
+                }
+                
     		};
     	}
 

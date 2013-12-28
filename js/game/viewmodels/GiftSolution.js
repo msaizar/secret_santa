@@ -3,7 +3,6 @@ define(['knockout', 'amplify', 'game/models/Game'], function(ko, amplify, Game) 
     	var self = this;
     	self.visible = ko.observable(false);
     	self.game = ko.observable(new Game());
-    	self.gifts = ko.observableArray([]);
 	
 	
     	amplify.subscribe('PlayerNamesSelected', function(data) {
@@ -11,6 +10,10 @@ define(['knockout', 'amplify', 'game/models/Game'], function(ko, amplify, Game) 
     		self.game().randomizeGifts();
     		self.visible(true);
     	});
+        
+        self.randomizeAgain = function() {
+            self.game().randomizeGifts();
+        }
 	
     }
 });
