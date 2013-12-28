@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Secret Santa App</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		
+        <script data-main="js/main" src="js/core/require.js"></script>
+		
+	</head>
+	<body>
+		<div class="container">
+			<div id="selectPlayerQuantity" data-bind="visible: visible">
+				<h2>Enter number of players</h2>
+				
+				<form class="form-horizontal" role="form">
+					<div class="form-group">
+				    	<label>Player Number</label>
+				    	<input data-bind="value: game().playerQuantity" type="text">
+				  	</div>
+				</form>
+				<button data-bind="click: quantitySelected" type="submit" class="btn btn-default">Next!</button>
+				
+			</div>
+
+			<div id="selectPlayerNames" data-bind="visible: visible">
+				
+				
+				<form class="form-horizontal" role="form" data-bind="foreach: game.players">
+					<div class="form-group">
+				    	<label>Player Name</label>
+				    	<input data-bind="value: name" type="text">
+				  	</div>
+				</form>
+				<button data-bind="click: playerNamesSelected" type="submit" class="btn btn-default">Next!</button>
+				
+			</div>
+
+			<div id="gifts" data-bind="visible: visible">
+				1
+				
+				<ul data-bind="foreach: game().gifts">
+					2
+					<li><span data-bind="value: playerGifting.name"></span> -> <span data-bind="value: playerGifted.name"></span></li>
+				</ul>
+			</div>
+			
+		</div>
+
+	</body>	
+</html>
