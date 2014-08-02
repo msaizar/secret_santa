@@ -13,24 +13,24 @@ requirejs.config({
         game: '../game',
     },
     shim: {
-        "amplify": {
-            deps: ["jquery"],
-            exports: "amplify"
+        'hashchange': {
+            deps: ['jquery'],
+            exports: 'jQuery.fn.hashchange.'
         }
-    }
+        
+    },
 });
 
-requirejs(['jquery', 'amplify', 'knockout', 'game/config', 'game/viewmodels/PlayerQuantity', 'game/viewmodels/PlayerNameSelection', 'game/viewmodels/GiftSolution'],
-function   ($, amplify, ko, config, PlayerQuantityViewModel, PlayerNameSelectionViewModel, GiftSolutionViewModel) {
+requirejs(['knockout', 'pager', 'game/viewmodels/Main'],
+function   (ko, pager, MainViewModel) {
     //jQuery, canvas and the app/sub module are all
     //loaded and can be used here now.
-   	var playerQuantityViewModel = new PlayerQuantityViewModel();
-   	ko.applyBindings(playerQuantityViewModel, document.getElementById(player_quantity_id));	
 
-   	var playerNameSelectionViewModel = new PlayerNameSelectionViewModel();
-   	ko.applyBindings(playerNameSelectionViewModel, document.getElementById(player_name_selection_id));	
+    pager.Href.hash = '#!/';    
+   	var MainViewModelObject = new MainViewModel();
+    pager.extendWithPage(MainViewModelObject);
+   	ko.applyBindings(MainViewModelObject)
+    pager.start();
 
-   	var giftSolutionViewModel = new GiftSolutionViewModel();
-   	ko.applyBindings(giftSolutionViewModel, document.getElementById(gift_solution_id));	
 });
 

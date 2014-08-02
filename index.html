@@ -18,14 +18,13 @@
         </script>
         <script data-main="js/main" src="js/core/require.js"></script>
         
-
 	</head>
     
 	<body>
         <nav class="navbar navbar-default" role="navigation">
           <div class="container-fluid">
             <div class="navbar-header">
-              <a class="navbar-brand" href="#">Secret Santa</a>
+              <a class="navbar-brand" href="#!/start">Secret Santa</a>
             </div>
 
           </div>
@@ -34,7 +33,7 @@
 
             
             
-			<div id="selectPlayerQuantity" data-bind="visible: visible">
+			<div id="selectPlayerQuantity" data-bind="page: {id: 'start', title: 'Welcome to Secret Santa'}">
                 <div class="page-header">
                 
 				<h1>Enter number of players</h1>
@@ -49,7 +48,7 @@
 				  	</div>
                     <div class="form-group">
                        <div class="col-sm-offset-2 col-sm-10">
-    				       <button data-bind="click: quantitySelected" type="submit" class="btn btn-default">Next!</button>
+    				       <a data-bind="click: quantitySelected" href="#!/playernames" type="submit" class="btn btn-default">Next!</a>
                         </div>
                     </div>
                     
@@ -57,7 +56,7 @@
 				
 			</div>
 
-			<div style="display:none;" id="selectPlayerNames" data-bind="visible: visible">
+			<div style="display:none;" id="selectPlayerNames" data-bind="page: {id: 'playernames'}">
                 <div class="page-header">
 				
 				<h1>Enter player names</h1>
@@ -74,7 +73,7 @@
                     <div class="form-group">
                        <div class="col-sm-offset-2 col-sm-10">
                     
-				<button data-bind="click: playerNamesSelected" type="submit" class="btn btn-default">Play!</button>
+				<a data-bind="click: playerNamesSelected" type="submit" class="btn btn-default">Play!</a>
                     </div>
                 </div>
                 
@@ -83,7 +82,7 @@
 				
 			</div>
 
-			<div style="display:none;" id="gifts" data-bind="visible: visible">
+			<div style="display:none;" id="gifts" data-bind="page: {id: 'result'}">
                 <div class="page-header">                
                 <h1>Secret Santa Result</h1>
                 </div>
@@ -100,9 +99,8 @@
             </table>
             <div class="btn-group">
             
-            <button data-bind="click: randomizeAgain" type="submit" class="btn btn-default">Try again with the same names!</button>
-            <button data-bind="click: newGame" type="submit" class="btn btn-default">Change number of players</button>
-            <button data-bind="click: differentNames" type="submit" class="btn btn-default">Pick new names</button>
+            <a data-bind="click: randomizeAgain" type="submit" class="btn btn-default">Try again with the same names!</a>
+            <a href='#!/start' type="submit" class="btn btn-default">Start over</a>
         </div>
             
             
