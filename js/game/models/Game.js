@@ -7,6 +7,7 @@ define(['jquery', 'knockout', 'game/models/Gift', 'game/models/Player'], functio
     	self.playersGifted = [];
     	self.playersGifting = [];
 	
+    
     	self.setPlayerQuantity = function(data) {
     		self.playerQuantity(data);
     	}
@@ -59,7 +60,8 @@ define(['jquery', 'knockout', 'game/models/Gift', 'game/models/Player'], functio
                 
     		};
     	}
-
+        
+        
     }
 
 });

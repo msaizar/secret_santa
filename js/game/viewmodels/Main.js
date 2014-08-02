@@ -2,6 +2,8 @@ define(['knockout', 'pager', 'game/models/Game'], function(ko, pager, Game) {
     return function MainViewModel() {
     	var self = this;
     	self.game = ko.observable(new Game());
+        self.game().createEmptyPlayers();
+        self.game().randomizeGifts();
 	
         
         self.randomizeAgain = function() {
