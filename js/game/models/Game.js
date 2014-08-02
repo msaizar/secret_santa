@@ -30,7 +30,7 @@ define(['jquery', 'knockout', 'game/models/Gift', 'game/models/Player'], functio
     	self.createEmptyPlayers = function() {	
             self.players([]);	
     		for (var i = 0; i < self.playerQuantity(); i++ ) {
-    			var player = new Player('');			
+    			var player = new Player('Player ' + (i+1));			
     			self.addPlayer(player);
     		}
     	}
