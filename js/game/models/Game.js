@@ -1,7 +1,7 @@
 define(['jquery', 'knockout', 'game/models/Gift', 'game/models/Player'], function($, ko, Gift, Player) {
     return function Game() {
     	var self = this;
-    	self.playerQuantity = ko.observable(2);
+    	self.playerQuantity = ko.observable(3);
     	self.players = ko.observableArray([]);
     	self.gifts = ko.observableArray([]);
     	self.playersGifted = [];
