@@ -20,36 +20,73 @@
         
 
 	</head>
+    
 	<body>
+        <nav class="navbar navbar-default" role="navigation">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#">Secret Santa</a>
+            </div>
+
+          </div>
+        </nav>
 		<div class="container">
+
+            
+            
 			<div id="selectPlayerQuantity" data-bind="visible: visible">
-				<h2>Enter number of players</h2>
-				
+                <div class="page-header">
+                
+				<h1>Enter number of players</h1>
+                </div>
 				<form class="form-horizontal" role="form">
 					<div class="form-group">
-				    	<label>Player Number</label>
-				    	<input data-bind="value: game().playerQuantity" type="text">
+				    	<label class="col-sm-2 control-label" for="player-number">Player Number</label>
+                        <div class="col-sm-10">
+                        
+	                        <input id="player-number" class="form-control" data-bind="value: game().playerQuantity" type="text">
+                        </div>
 				  	</div>
+                    <div class="form-group">
+                       <div class="col-sm-offset-2 col-sm-10">
+    				       <button data-bind="click: quantitySelected" type="submit" class="btn btn-default">Next!</button>
+                        </div>
+                    </div>
+                    
 				</form>
-				<button data-bind="click: quantitySelected" type="submit" class="btn btn-default">Next!</button>
 				
 			</div>
 
 			<div style="display:none;" id="selectPlayerNames" data-bind="visible: visible">
+                <div class="page-header">
 				
-				<h2>Enter player names</h2>
-				<form class="form-horizontal" role="form" data-bind="foreach: game().players">
+				<h1>Enter player names</h1>
+            </div>
+                <form class="form-horizontal" role="form">
+                    <!-- ko foreach: game().players -->
 					<div class="form-group">
-				    	<label>Player Name</label>
-				    	<input data-bind="value: name" type="text">
+				    	<label class="col-sm-2 control-label">Player Name</label>
+                        <div class="col-sm-10">
+				    	    <input class="form-control" data-bind="value: name" type="text">
+                        </div>
 				  	</div>
-				</form>
+                    <!-- /ko -->
+                    <div class="form-group">
+                       <div class="col-sm-offset-2 col-sm-10">
+                    
 				<button data-bind="click: playerNamesSelected" type="submit" class="btn btn-default">Play!</button>
+                    </div>
+                </div>
+                
+                    
+				</form>
 				
 			</div>
 
 			<div style="display:none;" id="gifts" data-bind="visible: visible">
-                <h2>Secret Santa Result</h2>
+                <div class="page-header">                
+                <h1>Secret Santa Result</h1>
+                </div>
                 <table class="table table-condensed table-striped">
                     <thead>
                         <tr><th>This Person Is Gifting</th><th>This Person</th></tr>
@@ -62,8 +99,9 @@
                 </tbody>
             </table>
             <button data-bind="click: randomizeAgain" type="submit" class="btn btn-default">Try again with the same names!</button>
+            <button data-bind="click: newGame" type="submit" class="btn btn-default">Change number of players</button>
             <button data-bind="click: differentNames" type="submit" class="btn btn-default">Pick new names</button>
-            <button data-bind="click: newGame" type="submit" class="btn btn-default">New Game</button>
+            
             
             
 
